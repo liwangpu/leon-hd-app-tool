@@ -1,0 +1,141 @@
+<div class="a4" #a4Ct>
+    <div class="header">
+        <div class="row row-4">
+            <div class="col">
+                <p class="block order-name">订单信息</p>
+            </div>
+            <div class="col">
+                <p class="sub">
+                    <span class="title">总面积</span>
+                    <span class="value block">0</span>
+                    <span class="unit">平方米</span>
+                </p>
+                <p class="sec">
+                    <span class="title">平面单价</span>
+                    <span class="unit">￥</span>
+                    <span class="value block sensitive">0</span>
+                </p>
+            </div>
+            <div class="col">
+                <p class="sec">
+                    <span class="title">参考总价</span>
+                    <span class="unit">￥</span>
+                    <span class="value block sensitive">{{totalPrice}}</span>
+                </p>
+            </div>
+            <div class="col"></div>
+        </div>
+        <div class="row row-4">
+            <div class="col">
+                <p class="block price-category">分类总价</p>
+            </div>
+            <div class="col">
+                <p class="sub">
+                    <img class="icon" src="/assets/images/Basics2.png">
+                    <span class="title">总面积</span>
+                    <span class="value block">0</span>
+                    <span class="unit">平方米</span>
+                </p>
+                <p class="sec">
+                    <img class="icon" src="/assets/images/Electric2.png">
+                    <span class="title">平面单价</span>
+                    <span class="unit">￥</span>
+                    <span class="value block sensitive">0</span>
+                </p>
+            </div>
+            <div class="col">
+                <p class="sub">
+                    <img class="icon" src="/assets/images/Basics2.png">
+                    <span class="title">主材</span>
+                    <span class="unit">￥</span>
+                    <span class="value block sensitive">0</span>
+                </p>
+                <p class="sec">
+                    <img class="icon" src="/assets/images/Other2.png">
+                    <span class="title">其他</span>
+                    <span class="unit">￥</span>
+                    <span class="value block sensitive">0</span>
+                </p>
+            </div>
+            <div class="col">
+                <p class="sub">
+                    <img class="icon" src="/assets/images/Basics2.png">
+                    <span class="title">家居饰品</span>
+                    <span class="unit">￥</span>
+                    <span class="value block furniture-totalprice sensitive">{{totalPrice}}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="card furniture">
+            <div class="title" (click)='toggleFurnitureList()'>
+                <div class="des">
+                    <img class="icon" src="/assets/images/Ornaments.png">
+                    <span>家居饰品</span>
+                    <span class="price prefix">（ 总价:</span>
+                    <span class="price value sensitive">{{totalPrice}}</span>
+                    <span class="price postfix">）</span>
+                </div>
+                <div class="op">
+                    <span>共</span>
+                    <span class="count">{{orderDetails.length}}</span>
+                    <span>项</span>
+                    <div class="arrow collapse"></div>
+                </div>
+            </div>
+            <div class="detail" [class.hidden]='!showFurnitureList'>
+                <table id="furniture-list">
+                    <thead>
+                        <tr>
+                            <th>图片</th>
+                            <th>品牌</th>
+                            <th>产品名称</th>
+                            <th>尺寸是否更改</th>
+                            <th>产品描述</th>
+                            <th>数量</th>
+                            <th class="hidden-in-bom">单价</th>
+                            <th class="hidden-in-bom">总价</th>
+                        </tr>
+                    </thead>
+                    <tbody id="furniture-list-tbody">
+                        <tr *ngFor='let it of orderDetails'>
+                            <td><img class="product" [src]='it.icon|serverRedirect:128'></td>
+                            <td>
+                                <p class="des"></p>
+                            </td>
+                            <td>
+                                <p class="des">{{it.productName}}</p>
+                            </td>
+                            <td>
+                                <p class="des">无</p>
+                            </td>
+                            <td>
+                                <p class="des">{{it.productDescription?(it.productDescription.length>25?it.productDescription.substring(0,
+                                    25)+'...':it.productDescription):'无'}}</p>
+                            </td>
+                            <td>
+                                <p class="des">{{it.num}}</p>
+                            </td>
+                            <td class="hidden-in-bom">
+                                <p class="des">{{it.unitPrice}}</p>
+                            </td>
+                            <td class="hidden-in-bom">
+                                <p class="des">{{it.totalPrice}}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div id='hidden-area' style="display:none;">
+
+        </div>
+        <div class="op">
+            <button id="btnPrintBOM" (click)='printBOM()'>打印材料单</button>
+            <button id="btnPrintBILL" (click)='printBILL()'>打印报价单</button>
+        </div>
+    </div>
+</div>

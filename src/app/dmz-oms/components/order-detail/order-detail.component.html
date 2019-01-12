@@ -1,0 +1,112 @@
+<div class="page">
+  <div class="header">
+    <table class="custom t1">
+      <tbody>
+        <tr>
+          <td class="title">订单编号:</td>
+          <td class="value" colspan="2">
+            {{orderNo}}
+          </td>
+          <td class="title">收货人:</td>
+          <td class="value" colspan="2">
+            {{customerName}}
+          </td>
+        </tr>
+        <tr>
+          <td class="title">收货地址:</td>
+          <td class="value" colspan="5">
+            {{customerAddress}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="custom t2">
+      <tbody>
+        <tr>
+          <td class="title">产品数量:</td>
+          <td class="av-value">
+            {{totalNum}}
+          </td>
+          <td class="title">产品金额:</td>
+          <td class="av-value">
+            {{totalPrice}}
+          </td>
+          <td class="title">首付款:</td>
+          <td class="av-value"></td>
+        </tr>
+        <tr>
+          <td class="title">第一次验货时间:</td>
+          <td></td>
+          <td class="title">第二次验货时间:</td>
+          <td></td>
+          <td class="title">尾款:</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="title">发货日期:</td>
+          <td></td>
+          <td class="title">专属客服:</td>
+          <td></td>
+          <td class="title">联系方式:</td>
+          <td>
+            {{customerPhone}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="content">
+    <table class="orders">
+      <thead>
+        <tr>
+          <th class="no">序号</th>
+          <th class="icon">图片</th>
+          <th class="product-name">产品名称</th>
+          <th class="spec-name">规格</th>
+          <th class="unit">单位</th>
+          <th class="num">数量</th>
+          <th class="unit-price">单价</th>
+          <th class="sum">小计</th>
+          <th class="material">材质</th>
+          <th class="fabric">面料</th>
+          <th class="remark">备注</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor='let it of orderDetails;let idx=index;'>
+          <td>
+            {{idx+1}}
+          </td>
+          <td>
+            <img class="icon" [src]='it.icon|serverRedirect:128'>
+          </td>
+          <td>
+            {{it.productName}}
+          </td>
+          <td>
+            {{it.productSpecName}}
+          </td>
+          <td>
+            {{it.productUnit}}
+          </td>
+          <td>
+            {{it.num}}
+          </td>
+          <td>
+            {{it.unitPrice}}
+          </td>
+          <td>
+            {{it.totalPrice}}
+          </td>
+          <td></td>
+          <td></td>
+          <td>
+            {{it.remark}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

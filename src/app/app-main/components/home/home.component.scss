@@ -1,0 +1,15 @@
+:host {
+    div.page {
+        width: 100%;
+        height: 100%;
+        padding: 2rem;
+        p.title {
+            padding-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        &>a {
+            display: block;
+            padding: .5rem 0;
+        }
+    }
+}

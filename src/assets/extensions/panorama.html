@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>全景图预览</title>
+    <script src="/assets/panolens/three.min.js"></script>
+    <script src="/assets/panolens/panolens.min.js"></script>
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        canvas {
+            cursor: grab;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        var ps = location.search.replace("?", "").split("&");
+        for (var i = 0; i < ps.length; ++i) {
+            if (ps[i].indexOf("url=") >= 0) {
+                var panorama, viewer;
+                panorama = new PANOLENS.ImagePanorama(ps[i].split("=")[1]);
+                viewer = new PANOLENS.Viewer();
+                viewer.add(panorama);
+                break;
+            }
+        }
+    </script>
+</body>
+
+</html>

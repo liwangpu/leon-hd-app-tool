@@ -1,0 +1,86 @@
+:host {
+    div.page {
+        padding: 5px 2px;
+        width: 780px;
+        height: 100%;
+        margin: auto;
+        font-size: 10px;
+        color: gray;
+        div.header {
+            width: 100%;
+            table-layout: fixed;
+            .custom {
+                width: 100%;
+                border-collapse: collapse;
+                &.t2 {
+                    position: relative;
+                    top: -1px;
+                    margin-bottom: 15px;
+                }
+                & td {
+                    padding: 5px;
+                    border: 1px solid gray;
+                    &.title {
+                        width: 130px;
+                        font-weight: bold;
+                        color: #4E4E4E;
+                    }
+                    &.av-value {
+                        width: 126px;
+                    }
+                }
+            }
+        }
+        div.content {
+            width: 100%;
+            .orders {
+                width: 100%;
+                border-collapse: collapse;
+                table-layout: fixed;
+                & th {
+                    color: #4E4E4E;
+                }
+                & th,
+                td {
+                    padding: 2px;
+                    border: 1px solid gray;
+                    word-break: break-all;
+                    &.no {
+                        width: 55px;
+                    }
+                    &.icon {
+                        width: 54px;
+                    }
+                    &.product-name {
+                        width: 60px;
+                    }
+                    &.spec-name {
+                        width: 60px;
+                    }
+                    &.unit {
+                        width: 60px;
+                    }
+                    &.num,
+                    &.unit-price,
+                    &.sum {
+                        width: 90px;
+                    }
+                    &.material,
+                    &.fabric {
+                        width: 60px;
+                    }
+                    &.remark {
+                        // width: 60px !important; 
+                    }
+                    &>img.icon {
+                        width: 50px;
+                        height: 50px;
+                    }
+                }
+                & td {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

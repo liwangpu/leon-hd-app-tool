@@ -1,0 +1,19 @@
+<div class="page">
+  <div class="dialog" *ngIf='!showPanorama'>
+    <div class="header">
+      <div class="logo-container">
+        <img src="/assets/images/morejee.png">
+      </div>
+      <p>分享文件</p>
+    </div>
+    <div class="content">
+      <p class="msg" *ngIf='!needPwd'>对不起，您访问的资源已过期或不存在！</p>
+      <div class="pwd" *ngIf='needPwd'>
+        <input type="password" class="ipt" placeholder="请输入查看密码" [(ngModel)]='password'>
+        <button class="view" (click)='view()' [class.disable]='!password'>查看</button>
+        <p class="err-pwd" *ngIf='errpassword'>密码输入有误！</p>
+      </div>
+    </div>
+  </div>
+  <iframe *ngIf='showPanorama' [src]="panoramaUrl" frameborder="0"></iframe>
+</div>
