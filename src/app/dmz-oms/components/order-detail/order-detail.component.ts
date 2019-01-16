@@ -15,6 +15,7 @@ export class OrderDetailComponent implements OnInit {
   customerName: string;
   customerAddress: string;
   customerPhone: string;
+  creatorName:string;
   totalNum: number = 0;
   totalPrice: number = 0;
   orderDetails: Array<OrderDetail> = [];
@@ -34,8 +35,17 @@ export class OrderDetailComponent implements OnInit {
         this.customerName = res.customerName;
         this.customerAddress = res.customerAddress;
         this.customerPhone = res.customerPhone;
-        this.orderDetails = res.orderDetails ? res.orderDetails : [];
+        this.creatorName=res.creatorName;
+        // this.orderDetails = res.orderDetails ? res.orderDetails : [];
         // console.log(1, res);
+
+        res.orderDetails.sort(function (a, b) {
+          if (a.productCategoryId < b.productCategoryId) { return -1; }
+          if (a.productCategoryId > b.productCategoryId) { return 1; }
+          return 0;
+        });
+        this.orderDetails = res.orderDetails;
+
       });
   }//ngOnInit
 

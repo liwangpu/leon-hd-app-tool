@@ -20,7 +20,7 @@ export class MemberInviteComponent implements OnInit {
 
   submiting = false;
   inviterId: string;
-  inviterAvatar: string = '/assets/images/cool-boy.jpg';
+  inviterAvatar: string;
   inviterName: string = '管理员';
   bsUrl: string;
   provinceControl = new FormControl();

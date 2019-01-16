@@ -17,6 +17,8 @@ export class OrderDetail {
     orderDetailStateId: number;
     productName: string;
     productUnit: string;
+    productCategoryName: string;
+    productCategoryId: string;
     productDescription: string;
     productSpecName: string;
     attachmentIds: string;

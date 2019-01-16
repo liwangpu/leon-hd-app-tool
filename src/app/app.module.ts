@@ -6,6 +6,13 @@ import { isPlatformBrowser } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AppConfigService } from './app-config.service';
+
+const appInitializerFn = (appConfig: AppConfigService) => {
+  return () => {
+    return appConfig.loadAppConfig();
+  }
+};
 
 @NgModule({
   declarations: [
@@ -18,7 +25,12 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule
   ],
   providers: [
-
+    {
+      provide: APP_INITIALIZER,
+      useFactory: appInitializerFn,
+      multi: true,
+      deps: [AppConfigService]
+    }
   ],
   bootstrap: [AppComponent]
 })

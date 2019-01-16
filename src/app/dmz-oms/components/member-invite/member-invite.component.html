@@ -5,37 +5,37 @@
         <p>会员资料填写</p>
         <mat-progress-bar class="progress" mode="indeterminate" *ngIf='submiting'></mat-progress-bar>
     </div>
-  
+
     <div class="content">
         <div class="invitor">
-            <img [src]="inviterAvatar">
+            <img [src]="inviterAvatar?(inviterAvatar|serverRedirect):'/assets/images/cool-boy.jpg'">
         </div>
         <p class="invitor">来自&nbsp;{{inviterName}}&nbsp;的邀请</p>
         <div class="form">
             <form name="detailForm" [formGroup]="detailForm">
                 <input type="hidden" formControlName='inviter' name='inviter'>
-  
+
                 <mat-form-field>
                     <input matInput name="name" formControlName="name" placeholder="姓名" required>
                     <mat-error *ngIf="!detailForm.controls['name'].valid">
                         姓名为必填信息
                     </mat-error>
                 </mat-form-field>
-  
+
                 <mat-form-field>
                     <input matInput name="mail" formControlName="mail" placeholder="邮件" required>
                     <mat-error *ngIf="!detailForm.controls['mail'].valid">
                         {{detailForm.controls['mail'].hasError('required')?'邮箱为必填信息':'邮箱格式不规范'}}
                     </mat-error>
                 </mat-form-field>
-  
+
                 <mat-form-field>
                     <input matInput name="phone" formControlName="phone" placeholder="电话" required>
                     <mat-error *ngIf="!detailForm.controls['phone'].valid">
                         电话为必填信息
                     </mat-error>
                 </mat-form-field>
-  
+
                 <mat-form-field>
                     <input matInput name="province" [formControl]="provinceControl" [matAutocomplete]="provinceAuto"
                         required placeholder="省">
@@ -45,7 +45,7 @@
                         </mat-option>
                     </mat-autocomplete>
                 </mat-form-field>
-  
+
                 <mat-form-field>
                     <input matInput name="city" [formControl]="cityControl" [matAutocomplete]="cityAuto" required
                         placeholder="市">
@@ -55,11 +55,11 @@
                         </mat-option>
                     </mat-autocomplete>
                 </mat-form-field>
-  
+
                 <mat-form-field>
                     <input matInput name="company" formControlName="company" placeholder="公司">
                 </mat-form-field>
-  
+
                 <mat-form-field>
                     <textarea matInput placeholder="Textarea" name="remark" formControlName="remark" placeholder="备注"></textarea>
                     <mat-error *ngIf="detailForm.get('remark').hasError('maxlength')">
@@ -82,12 +82,12 @@
                 </div>
             </div>
         </div>
-  
+
         <div style="display: none;">
             <input type="file" #fileInputCt (change)="onFileChange($event)">
         </div>
     </div>
-  
+
     <div class="footer" *ngIf='inviterId'>
         <button mat-button [disabled]='!detailForm.dirty' (click)='reset()'>
             <mat-icon>replay</mat-icon>
@@ -98,4 +98,4 @@
             <span>提交</span>
         </button>
     </div>
-  </div>
+</div>

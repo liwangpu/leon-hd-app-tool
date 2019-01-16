@@ -10,16 +10,10 @@ const routes: Routes = [
   , {
     path: 'dmz-hd'
     , loadChildren: './dmz-hd/dmz-hd.module#DmzHdModule'
-    , resolve: {
-      appConfig: AppConfigService
-    }
   }
   , {
     path: 'dmz-oms'
     , loadChildren: './dmz-oms/dmz-oms.module#DmzOmsModule'
-    , resolve: {
-      appConfig: AppConfigService
-    }
   }
   , { path: '**', redirectTo: 'app-main/home' }
 ];

@@ -32,7 +32,7 @@
             {{totalPrice}}
           </td>
           <td class="title">首付款:</td>
-          <td class="av-value"></td>
+          <td class="av-value">{{totalPrice/2}}</td>
         </tr>
         <tr>
           <td class="title">第一次验货时间:</td>
@@ -40,13 +40,13 @@
           <td class="title">第二次验货时间:</td>
           <td></td>
           <td class="title">尾款:</td>
-          <td></td>
+          <td>{{totalPrice/2}}</td>
         </tr>
         <tr>
           <td class="title">发货日期:</td>
           <td></td>
           <td class="title">专属客服:</td>
-          <td></td>
+          <td>{{creatorName}}</td>
           <td class="title">联系方式:</td>
           <td>
             {{customerPhone}}
@@ -62,7 +62,7 @@
           <th class="no">序号</th>
           <th class="icon">图片</th>
           <th class="product-name">产品名称</th>
-          <th class="spec-name">规格</th>
+          <th class="spec-name">产品分类</th>
           <th class="unit">单位</th>
           <th class="num">数量</th>
           <th class="unit-price">单价</th>
@@ -86,7 +86,7 @@
             {{it.productName}}
           </td>
           <td>
-            {{it.productSpecName}}
+            {{it.productCategoryName}}
           </td>
           <td>
             {{it.productUnit}}
