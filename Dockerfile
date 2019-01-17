@@ -1,6 +1,6 @@
 FROM node:8.15.0-alpine
 ENV APISERVER http://kennapi.damaozhu.com.cn
-ENV PORT 4001
+ENV PORT 4000
 WORKDIR /app
 COPY dist/. dist/.
 EXPOSE 4000
