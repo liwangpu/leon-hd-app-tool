@@ -1,7 +1,7 @@
 <div class="page">
     <div class="header">
         <img class="logo" *ngIf='inviterCompanyIcon' [src]="inviterCompanyIcon">
-        <h1 *ngIf='inviterCompanyName'>{{inviterCompanyName}}会员</h1>
+        <h1 *ngIf='inviterCompanyName'>{{inviterCompanyName}}</h1>
     </div>
     <div class="content">
         <div class="qrcode-container">
@@ -15,7 +15,7 @@
             <div class="qrcode">
                 <app-qrcode *ngIf='_inviteUrl' [content]='_inviteUrl' [size]='160'></app-qrcode>
             </div>
-            <p class="tip">长按或扫码注册</p>
+            <p *ngIf='_inviteUrl' class="tip">长按或扫码注册</p>
         </div>
     </div>
     <div class="footer">

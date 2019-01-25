@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { map, skipWhile, switchMap } from 'rxjs/operators';
 import { AccountService } from '../../services/account.service';
+import { AppConfigService } from '../../../app-config.service';
 
 @Component({
   selector: 'app-invite-card',
@@ -12,11 +13,11 @@ import { AccountService } from '../../services/account.service';
 export class InviteCardComponent implements OnInit {
 
   _inviteUrl: string;
-  inviterCompanyName: string;
+  inviterCompanyName: string = "会员";
   inviterCompanyIcon: string;
   inviterName: string;
   loginForm: FormGroup;
-  constructor(protected formBuilder: FormBuilder, protected route: ActivatedRoute, protected accountSrv: AccountService) {
+  constructor(protected formBuilder: FormBuilder, protected route: ActivatedRoute, protected accountSrv: AccountService, protected configSrv: AppConfigService) {
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]]
@@ -42,7 +43,8 @@ export class InviteCardComponent implements OnInit {
   }//readyToMake
 
   setInviteUrl(userId: string) {
-    this._inviteUrl = `/dmz-oms/member-invite?u=${userId}`;
+    this._inviteUrl = `${this.configSrv.appConfig.server}/dmz-oms/member-invite?u=${userId}`;
+    console.log(2, this._inviteUrl);
   }//setInviteUrl
 
 }
