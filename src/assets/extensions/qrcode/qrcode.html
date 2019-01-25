@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="./jquery.js"></script>
+    <script src="./jquery-qrcode.js"></script>
+    <style>
+        html,
+        body {
+            min-width: 0;
+            min-height: 0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        div#qrcode {
+            display: inline-block;
+        }
+    </style>
+    <script>
+        $(function () {
+            var queryParam = getQuery();
+            generateQRCode(queryParam.size, queryParam.text);
+        });//$
+
+        function getQuery() {
+            var queryParam = {};
+            var ps = location.search.replace("?", "").split("&");
+            for (var i = 0; i < ps.length; ++i) {
+                var arr = ps[i].split("=");
+                if (arr.length >= 2)
+                    queryParam[arr[0]] = arr[1];
+            }
+            return queryParam;
+        }//getQuery 获取页面查询参数
+
+        function generateQRCode(size, text) {
+            size = size ? Number(size) : 64;
+            text = text ? decodeURIComponent(text) : '如果你看见我,说明你没有给我传递参数';
+            var option = {
+                // render method: 'canvas', 'image' or 'div'
+                render: 'image',
+
+                // version range somewhere in 1 .. 40
+                minVersion: 1,
+                maxVersion: 40,
+
+                // error correction level: 'L', 'M', 'Q' or 'H'
+                ecLevel: 'L',
+
+                // offset in pixel if drawn onto existing canvas
+                left: 0,
+                top: 0,
+
+                // size in pixel
+                size: size,
+
+                // code color or image element
+                fill: '#000',
+
+                // background color or image element, null for transparent background
+                background: null,
+
+                // content
+                text: text,
+
+                // corner radius relative to module width: 0.0 .. 0.5
+                radius: 0,
+
+                // quiet zone in modules
+                quiet: 0,
+
+                // modes
+                // 0: normal
+                // 1: label strip
+                // 2: label box
+                // 3: image strip
+                // 4: image box
+                mode: 0,
+
+                mSize: 0.1,
+                mPosX: 0.5,
+                mPosY: 0.5,
+
+                label: 'no label',
+                fontname: 'sans',
+                fontcolor: '#000',
+
+                image: null
+            };
+            $('#qrcode').qrcode(option);
+        }//generateQRCode 生成二维码
+    </script>
+    <title>二维码</title>
+</head>
+
+<body>
+    <div id="qrcode"></div>
+</body>
+
+</html>

@@ -1,0 +1,157 @@
+:host {
+    div.page {
+        width: 100%;
+        height: 100%;
+        background: url('/assets/images/starry-sky.png') 0 0 no-repeat;
+        background-size: 100% 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        position: relative;
+        overflow-x: hidden;
+        div.header {
+            color: white;
+            width: 100%;
+            margin-bottom: 3rem;
+            display: flex;
+            flex-flow: row;
+            justify-content: center;
+            align-items: center;
+            flex: 1 1 0;
+            $logo_size: 2.5rem;
+            img.logo {
+                width: $logo_size;
+                height: $logo_size;
+            }
+            h1 {
+                font-size: 1.2rem;
+                padding-left: 1rem;
+            }
+        }
+        div.content {
+            $ctr_size: 250px;
+            $ctr_border_size: 6px;
+            div.qrcode-container {
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                align-items: center;
+                width: $ctr_size;
+                height: $ctr_size;
+                border: 6px transparent;
+                position: relative;
+                border-bottom: $ctr_border_size solid white;
+                img.invite-tip {
+                    height: 40px;
+                    position: absolute;
+                    top: -26px;
+                    left: 70px;
+                }
+                img.lightc {
+                    position: absolute;
+                    width: 80px;
+                    height: 80px;
+                    transform: rotate(25deg);
+                    &.left {
+                        top: 80px;
+                        left: -80px;
+                    }
+                    &.right {
+                        top: 80px;
+                        right: -70px;
+                    }
+                }
+                div.qrcode {
+                    width: $ctr_size - 80px;
+                    height: $ctr_size - 80px;
+                    padding: 5px;
+                    margin-top: 30px;
+                    background-color: white;
+                    &>app-qrcode {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+                p.tip {
+                    padding: .5rem;
+                }
+                div.brd {
+                    position: absolute;
+                    width: $ctr_size/4;
+                    height: $ctr_size/4;
+                    &.top-left {
+                        top: -$ctr_border_size;
+                        left: -$ctr_border_size;
+                        border-top: $ctr_border_size solid white;
+                        border-left: $ctr_border_size solid white;
+                    }
+                    &.top-right {
+                        top: -$ctr_border_size;
+                        right: -$ctr_border_size;
+                        border-top: $ctr_border_size solid white;
+                        border-right: $ctr_border_size solid white;
+                    }
+                    &.bottom-left {
+                        bottom: -$ctr_border_size;
+                        left: -$ctr_border_size;
+                        border-bottom: $ctr_border_size solid white;
+                        border-left: $ctr_border_size solid white;
+                    }
+                    &.bottom-right {
+                        bottom: -$ctr_border_size;
+                        right: -$ctr_border_size;
+                        border-bottom: $ctr_border_size solid white;
+                        border-right: $ctr_border_size solid white;
+                    }
+                }
+            }
+        }
+        div.footer {
+            flex: 1 1 0;
+            display: flex;
+            flex-flow: column;
+            justify-content: flex-end;
+            p.invitor {
+                padding: .5rem;
+            }
+            button.make {
+                width: 100%;
+                height: 2.625rem;
+                border: 1px solid transparent;
+                border-radius: .25rem;
+                background-color: #1c7ec3;
+                color: white;
+                padding: .5rem 1rem;
+                &:hover {
+                    cursor: pointer;
+                    background-color: #0070d2;
+                }
+                margin-bottom: 1rem;
+            }
+        } // div.login {
+        //     width: 100%;
+        //     height: 100%;
+        //     position: absolute;
+        //     background-color: #1E1E1E;
+        //     display: flex;
+        //     flex-flow: column;
+        //     justify-content: center;
+        //     align-items: center;
+        //     form {
+        //         display: block;
+        //         width: 100%;
+        //         &>input {
+        //             width: 100%;
+        //             background: transparent;
+        //             border: none;
+        //             &:focus {
+        //                 background: transparent;
+        //                 outline: 0;
+        //             }
+        //         }
+        //     } 
+        // }
+    }
+}

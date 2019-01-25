@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { MemberInviteComponent } from './components/member-invite/member-invite.component';
 import { OrderViewerComponent } from './components/order-viewer/order-viewer.component';
 import { OrderDetailComponent } from './components/order-detail/order-detail.component';
+import { InviteCardComponent } from './components/invite-card/invite-card.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   , {
     path: 'order-detail'
     , component: OrderDetailComponent
+  }
+  , {
+    path: 'invite-card'
+    , component: InviteCardComponent
   }
 ];
 

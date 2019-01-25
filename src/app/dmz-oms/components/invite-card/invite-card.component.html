@@ -1,0 +1,34 @@
+<div class="page">
+    <div class="header">
+        <img class="logo" *ngIf='inviterCompanyIcon' [src]="inviterCompanyIcon">
+        <h1 *ngIf='inviterCompanyName'>{{inviterCompanyName}}会员</h1>
+    </div>
+    <div class="content">
+        <div class="qrcode-container">
+            <img class="invite-tip" src="/assets/images/invite-card.png">
+            <div class="brd top-left"></div>
+            <div class="brd top-right"></div>
+            <div class="brd bottom-left"></div>
+            <div class="brd bottom-right"></div>
+            <img class="lightc left" src="/assets/images/light-cross.png">
+            <img class="lightc right" src="/assets/images/light-cross.png">
+            <div class="qrcode">
+                <app-qrcode *ngIf='_inviteUrl' [content]='_inviteUrl' [size]='160'></app-qrcode>
+            </div>
+            <p class="tip">长按或扫码注册</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p class="invitor" *ngIf='inviterName'>来自 {{inviterName}} 的邀请</p>
+        <!-- <button class="make" (click)='readyToMake()'>开始制作</button> -->
+    </div>
+
+    <!-- <div class="login">
+        <h2>欢迎登录</h2>
+        <form name="loginForm" [formGroup]="loginForm">
+            <input type="text" placeholder="账户名">
+            <input type="password" placeholder="密码">
+            <button>登录</button>
+        </form>
+    </div> -->
+</div>

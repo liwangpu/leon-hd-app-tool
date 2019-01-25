@@ -56,7 +56,7 @@ export class ShareComponent implements OnInit {
 
   viewPanorama(furl) {
     this.showPanorama = true;
-    this.panoramaUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`/assets/extensions/panorama.html?url=${this.configSrv.appConfig.server}${furl}`);
+    this.panoramaUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`/assets/extensions/panorama/panorama.html?url=${this.configSrv.appConfig.server}${furl}`);
   }//viewPanorama
 
 }

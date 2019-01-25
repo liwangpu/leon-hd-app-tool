@@ -12,12 +12,15 @@ import { OrderViewerComponent } from './components/order-viewer/order-viewer.com
 import { OrderService } from './services/order.service';
 import { ServerRedirectPipe } from '../server-redirect.pipe';
 import { OrderDetailComponent } from './components/order-detail/order-detail.component';
+import { InviteCardComponent } from './components/invite-card/invite-card.component';
+import { DmzCommonModule } from '../dmz-common/dmz-common.module';
 
 
 @NgModule({
-  declarations: [MemberInviteComponent, OrderViewerComponent, ServerRedirectPipe, OrderDetailComponent],
+  declarations: [MemberInviteComponent, OrderViewerComponent, ServerRedirectPipe, OrderDetailComponent, InviteCardComponent],
   imports: [
     CommonModule,
+    DmzCommonModule,
     DmzOmsRoutingModule,
     ReactiveFormsModule,
     DmzOmsRoutingModule,
