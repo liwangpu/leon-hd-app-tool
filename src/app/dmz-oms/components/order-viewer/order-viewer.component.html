@@ -102,7 +102,7 @@
                         <tr *ngFor='let it of orderDetails'>
                             <td><img class="product" [src]='it.icon|serverRedirect:128'></td>
                             <td>
-                                <p class="des"></p>
+                                <p class="des">{{it.productBrand}}</p>
                             </td>
                             <td>
                                 <p class="des">{{it.productName}}</p>

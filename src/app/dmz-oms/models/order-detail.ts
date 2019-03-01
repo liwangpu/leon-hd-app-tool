@@ -20,6 +20,7 @@ export class OrderDetail {
     productCategoryName: string;
     productCategoryId: string;
     productDescription: string;
+    productBrand: string;
     productSpecName: string;
     attachmentIds: string;
     attachments: Array<{ id: string, name: string, url: string }>;
