@@ -33,7 +33,6 @@ export class QrcodeComponent implements OnInit {
   qrcodeUrl: SafeResourceUrl;
   constructor(private acr: ActivatedRoute, protected sanitizer: DomSanitizer) {
     this.acr.queryParams.subscribe(query => {
-      console.log(111, query);
       this.size = query['size'];
       this.content = query['content'];
     });
