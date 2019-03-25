@@ -7,7 +7,9 @@ import { enableProdMode } from '@angular/core';
 import * as express from 'express';
 import { join } from 'path';
 import * as QRCode from "qrcode";
-
+import * as fs from "fs";
+import * as path from "path";
+import * as uuidv1 from 'uuid/v1';
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
 
@@ -43,15 +45,21 @@ app.get('/api/*', (req, res) => {
 
 app.get('/tool/qrcode', (req, res) => {
   var content = req.query.content;
+  var size = req.query.size ? req.query.size : 250;
+  var margin = req.query.margin ? req.query.margin : 2;
+  var qrcodeType = req.query.type ? req.query.type : 'png';
   if (!content)
     content = "you can see me if you don't pass \"content\" query param";
 
-  QRCode.toDataURL(content, function (err, url) {
+  let imagePath = path.join(process.cwd(), `${uuidv1()}.${qrcodeType}`);
+  QRCode.toFile(imagePath, content, { width: size, margin: margin, type: qrcodeType }, err => {
     if (err)
-      res.send(err);
-    res.send(url);
-  });
-});
+      res.send(err.toString());
+    res.sendFile(imagePath, function () {
+      fs.unlink(imagePath, err => { });
+    });
+  });//toFile
+});//get
 
 // Server static files from /browser
 app.get('*.*', express.static(join(DIST_FOLDER, 'browser')));
