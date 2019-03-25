@@ -6,6 +6,7 @@ import { enableProdMode } from '@angular/core';
 
 import * as express from 'express';
 import { join } from 'path';
+import * as QRCode from "qrcode";
 
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
@@ -37,6 +38,19 @@ app.set('views', join(DIST_FOLDER, 'browser'));
 // TODO: implement data requests securely
 app.get('/api/*', (req, res) => {
   res.status(404).send('data requests are not supported');
+});
+
+
+app.get('/tool/qrcode', (req, res) => {
+  var content = req.query.content;
+  if (!content)
+    content = "you can see me if you don't pass \"content\" query param";
+
+  QRCode.toDataURL(content, function (err, url) {
+    if (err)
+      res.send(err);
+    res.send(url);
+  });
 });
 
 // Server static files from /browser
