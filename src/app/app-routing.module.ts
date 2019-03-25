@@ -7,6 +7,10 @@ const routes: Routes = [
     , loadChildren: './app-main/app-main.module#AppMainModule'
   }
   , {
+    path: 'app-tool'
+    , loadChildren: './app-tool/app-tool.module#AppToolModule'
+  }
+  , {
     path: 'dmz-hd'
     , loadChildren: './dmz-hd/dmz-hd.module#DmzHdModule'
   }
