@@ -1,121 +1,144 @@
 :host {
-    div.page {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    div.container {
         width: 100%;
         height: 100%;
+        overflow: hidden;
         background-color: #1E1E1E;
-        div.dialog {
-            $dialog_radius: 5px;
-            width: 450px;
-            min-height: 250px;
-            border-radius: $dialog_radius;
-            background-color: white;
-            div.header {
-                height: 82px;
-                border-top-left-radius: $dialog_radius;
-                border-top-right-radius: $dialog_radius;
-                background-color: #438AEE;
-                display: flex;
-                padding: 0 1.5rem;
-                flex-flow: row;
-                justify-content: flex-start;
-                align-items: center;
-                div.logo-container {
-                    $logo_radius: 60px;
-                    width: $logo_radius;
-                    height: $logo_radius;
-                    border-radius: $logo_radius/2;
-                    background-color: white;
-                    border: 5px solid #3779D6;
-                    &>img {
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-                &>p {
-                    padding: 0 1rem;
-                    color: white;
-                }
-            }
-            div.content {
-                min-height: 168px;
-                display: flex;
-                flex-flow: row;
-                justify-content: flex-start;
-                align-items: center;
-                $content_gab: 2rem;
-                padding: 1rem 2rem;
-                p.msg {}
-                div.pwd {
-                    width: 100%;
-                    min-height: 80px;
-                    display: flex;
-                    flex-flow: row wrap;
-                    justify-content: space-between;
-                    align-items: center;
-                    p.tip {
-                        width: 100%;
-                        height: 18px;
-                        line-height: 18px;
-                    }
-                    input.ipt {
-                        width: 280px;
-                        height: 38px;
-                        background-color: #F2F2F2;
-                        border: none;
-                        border-radius: 3px;
-                        padding: 0 1rem;
-                        margin: .5rem 0;
-                        &:focus {
-                            outline: none;
-                        }
-                    }
-                    button.view {
-                        width: 80px;
-                        height: 38px;
-                        background-color: #438AEE;
-                        border: 0;
-                        padding: 0;
-                        color: white;
-                        border-radius: 3px;
-                        margin: .5rem 0;
-                        &.disable {
-                            background-color: gray;
-                            cursor: not-allowed !important;
-                        }
-                        &:hover {
-                            cursor: pointer;
-                        }
-                    }
-                    p.err-pwd {
-                        color: red;
-                        width: 100%;
-                    }
-                }
-            }
-        }
-        iframe {
+
+        div.wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             width: 100%;
             height: 100%;
-            border: none;
-            position: absolute;
+            div.dialog {
+                $dialog_radius: 5px;
+                width: 450px;
+                min-height: 250px;
+                border-radius: $dialog_radius;
+                background-color: white;
+
+                div.header {
+                    height: 82px;
+                    border-top-left-radius: $dialog_radius;
+                    border-top-right-radius: $dialog_radius;
+                    background-color: #438AEE;
+                    display: flex;
+                    padding: 0 1.5rem;
+                    flex-flow: row;
+                    justify-content: flex-start;
+                    align-items: center;
+
+                    div.logo-container {
+                        $logo_radius: 60px;
+                        width: $logo_radius;
+                        height: $logo_radius;
+                        border-radius: $logo_radius/2;
+                        background-color: white;
+                        border: 5px solid #3779D6;
+
+                        &>img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    &>p {
+                        padding: 0 1rem;
+                        color: white;
+                    }
+                }
+
+                div.content {
+                    min-height: 168px;
+                    display: flex;
+                    flex-flow: row;
+                    justify-content: flex-start;
+                    align-items: center;
+                    $content_gab: 2rem;
+                    padding: 1rem 2rem;
+
+                    p.msg {}
+
+                    div.pwd {
+                        width: 100%;
+                        min-height: 80px;
+                        display: flex;
+                        flex-flow: row wrap;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        p.tip {
+                            width: 100%;
+                            height: 18px;
+                            line-height: 18px;
+                        }
+
+                        input.ipt {
+                            width: 280px;
+                            height: 38px;
+                            background-color: #F2F2F2;
+                            border: none;
+                            border-radius: 3px;
+                            padding: 0 1rem;
+                            margin: .5rem 0;
+
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+
+                        button.view {
+                            width: 80px;
+                            height: 38px;
+                            background-color: #438AEE;
+                            border: 0;
+                            padding: 0;
+                            color: white;
+                            border-radius: 3px;
+                            margin: .5rem 0;
+
+                            &.disable {
+                                background-color: gray;
+                                cursor: not-allowed !important;
+                            }
+
+                            &:hover {
+                                cursor: pointer;
+                            }
+                        }
+
+                        p.err-pwd {
+                            color: red;
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+
+        iframe.ifrm {
+            width: 100%;
+            height: 100%;
         }
     }
+
 }
 
 @media screen and (max-width:480px) {
-    div.page {
-        padding: 2rem;
-        div.dialog {
-            width: 300px;
-            height: 250px;
-            div.content {
-                div.pwd {
-                    input.ipt {
-                        width: 200px !important;
+    div.container {
+        div.wrapper {
+            padding: 2rem;
+
+            div.dialog {
+                width: 300px;
+                height: 250px;
+
+                div.content {
+                    div.pwd {
+                        input.ipt {
+                            width: 200px !important;
+                        }
                     }
                 }
             }

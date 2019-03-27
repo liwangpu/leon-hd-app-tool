@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AppConfigService } from '../../app-config.service';
-import { observable } from 'rxjs';
+
 
 @Injectable()
 export class ShareService {
