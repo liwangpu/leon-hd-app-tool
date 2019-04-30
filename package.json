@@ -14,7 +14,7 @@
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
     "test:ssr": "npm run build:ssr && npm run serve:ssr && node dist/browser/assets/app-startup.js",
     "test:docker:image": "docker stop hd_app_tool_c && docker rm  hd_app_tool_c && docker build -t hd_app_tool . && docker run -p 4000:4000 -e APISERVER=http://kennapi.damaozhu.com.cn --name hd_app_tool_c hd_app_tool:latest",
-    "build:prod:docker:image": "npm run build:ssr && docker build -t apps-morejee-tool-site:latest ."
+    "build:prod:docker:image": "npm run build:ssr && docker build -t dockerhub.damaozhu.com.cn:5000/app-site-morejee-tool:norya ."
   },
   "private": true,
   "dependencies": {
