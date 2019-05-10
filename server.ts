@@ -10,6 +10,7 @@ import * as QRCode from "qrcode";
 import * as fs from "fs";
 import * as path from "path";
 import * as uuidv1 from 'uuid/v1';
+import { generateExcel } from "./src/plugins/order2excel/generate-excel";
 // Faster server renders w/ Prod mode (dev mode never needed)
 enableProdMode();
 
@@ -60,6 +61,22 @@ app.get('/tool/qrcode', (req, res) => {
     });
   });//toFile
 });//get
+
+app.get('/tool/order-export', (req, res) => {
+  let orderId = req.query.orderId;
+  let apiSrv = req.query.server;
+  if (!orderId)
+    res.send("query参数orderId不能为空");
+  if (!apiSrv)
+    res.send("query参数server不能为空");
+
+  generateExcel(apiSrv, orderId).subscribe(execlPath => {
+    res.sendFile(execlPath, function () {
+      fs.unlink(execlPath, err => { });
+    });
+  });//generateExcel
+});//get
+
 
 // Server static files from /browser
 app.get('*.*', express.static(join(DIST_FOLDER, 'browser')));
