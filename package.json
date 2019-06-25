@@ -40,7 +40,8 @@
     "download": "^7.1.0",
     "excel4node": "^1.7.2",
     "request": "^2.88.0",
-    "zone.js": "~0.8.26"
+    "zone.js": "~0.8.26",
+    "file-saver": "1.3.8"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.12.0",
@@ -50,7 +51,7 @@
     "@angular/platform-server": "^7.2.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~8.9.4",
+    "@types/node": "^8.9.5",
     "child_process": "^1.0.2",
     "codelyzer": "~4.5.0",
     "dotenv": "~6.2.0",

@@ -81,7 +81,7 @@
                     <span>共</span>
                     <span class="count">{{orderDetails.length}}</span>
                     <span>项</span>
-                    <div class="arrow collapse"></div>
+                    <div class="arrow" [class.collapse]='!showFurnitureList'></div>
                 </div>
             </div>
             <div class="detail" [class.hidden]='!showFurnitureList'>
@@ -136,6 +136,7 @@
         <div class="op">
             <button id="btnPrintBOM" (click)='printBOM()'>打印材料单</button>
             <button id="btnPrintBILL" (click)='printBILL()'>打印报价单</button>
+            <button id="btnPrintBOM" (click)='exportExcel()' [disabled]='!enableExportExcel'>导出表格</button>
         </div>
     </div>
 </div>

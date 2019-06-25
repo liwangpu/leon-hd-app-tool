@@ -92,9 +92,10 @@
                             height: 7px;
                             position: relative;
                             top: -2px;
-                            background: url('/images/arrow-up.png');
+                            background: url('/assets/images/arrow-up.png');
+                            margin-left: 5px;
                             &.collapse {
-                                background: url('/images/arrow-down.png');
+                                background: url('/assets/images/arrow-down.png');
                             }
                         }
                     }

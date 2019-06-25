@@ -1,3 +1,4 @@
 {
-    "server": "http://testapi.damaozhu.com.cn"
+    "server": "http://192.168.1.175:9503",
+    "omsToolServer":"http://192.168.1.175:9523"
 }
