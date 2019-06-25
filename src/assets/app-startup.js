@@ -3,7 +3,8 @@ const fs = require('fs');
 const appConfigPath = '/app/dist/browser/assets/app-config.json';
 
 var appConfig = {
-    server: process.env.APISERVER
+    server: process.env.APISERVER,
+    omsToolServer: process.env.OMSTOOLSERVER
 };
 fs.writeFile(appConfigPath, JSON.stringify(appConfig), function (err) {
     if (err) {

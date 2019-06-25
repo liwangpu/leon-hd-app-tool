@@ -1,4 +1,4 @@
 {
     "server": "http://192.168.1.175:9503",
-    "omsToolServer":"http://192.168.1.175:9523"
+    "omsToolServer":"http://192.168.1.175:9523/dmz/oms/norya/order2excel"
 }

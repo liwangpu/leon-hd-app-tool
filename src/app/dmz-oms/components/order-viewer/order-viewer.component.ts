@@ -74,7 +74,7 @@ export class OrderViewerComponent implements OnInit {
     if (!this.enableExportExcel) return;
     this.enableExportExcel = false;
     let api = encodeURIComponent(this.appConfigSrv.appConfig.server);
-    let excelUrl = `${this.appConfigSrv.appConfig.omsToolServer}/dmz/oms/norya/order2excel?orderId=${this._currentOrderId}&server=${api}`;
+    let excelUrl = `${this.appConfigSrv.appConfig.omsToolServer}?orderId=${this._currentOrderId}&server=${api}`;
     this.httpClient.get(excelUrl, { responseType: 'blob' }).subscribe(fs => {
       saveAs(fs, 'Order Detail.xlsx');
       this.enableExportExcel = true;
