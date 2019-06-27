@@ -16,7 +16,7 @@ export class OrderViewerComponent implements OnInit {
 
   private _currentOrderId: string;
   enableExportExcel = true;
-  showFurnitureList = false;
+  showFurnitureList = true;
   totalPrice: number = 0;
   orderDetails: Array<OrderDetail> = [];
   @ViewChild('a4Ct') a4Ct: ElementRef;
