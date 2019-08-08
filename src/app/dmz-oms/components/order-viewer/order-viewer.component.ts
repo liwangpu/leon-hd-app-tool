@@ -6,7 +6,7 @@ import { map, switchMap, tap } from 'rxjs/operators';
 import { AppConfigService } from '../../../app-config.service';
 import { saveAs } from 'file-saver/FileSaver';
 import { HttpClient } from '@angular/common/http';
-
+import * as moment from "moment";
 @Component({
   selector: 'app-order-viewer',
   templateUrl: './order-viewer.component.html',
@@ -76,7 +76,7 @@ export class OrderViewerComponent implements OnInit {
     let api = encodeURIComponent(this.appConfigSrv.appConfig.server);
     let excelUrl = `${this.appConfigSrv.appConfig.omsToolServer}?orderId=${this._currentOrderId}&server=${api}`;
     this.httpClient.get(excelUrl, { responseType: 'blob' }).subscribe(fs => {
-      saveAs(fs, 'Order Detail.xlsx');
+      saveAs(fs, `報價單 ${moment().format("YYYY-MM-DD hhmmss")}.xlsx`);
       this.enableExportExcel = true;
     }, err => {
       console.error("导出表格出现异常:", err);

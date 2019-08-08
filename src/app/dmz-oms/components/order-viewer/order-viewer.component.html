@@ -2,23 +2,23 @@
     <div class="header">
         <div class="row row-4">
             <div class="col">
-                <p class="block order-name">订单信息</p>
+                <p class="block order-name">訂單信息</p>
             </div>
             <div class="col">
                 <p class="sub">
-                    <span class="title">总面积</span>
+                    <span class="title">總面積</span>
                     <span class="value block">0</span>
                     <span class="unit">平方米</span>
                 </p>
                 <p class="sec">
-                    <span class="title">平面单价</span>
+                    <span class="title">平面單價</span>
                     <span class="unit">￥</span>
                     <span class="value block sensitive">0</span>
                 </p>
             </div>
             <div class="col">
                 <p class="sec">
-                    <span class="title">参考总价</span>
+                    <span class="title">參考總價</span>
                     <span class="unit">￥</span>
                     <span class="value block sensitive">{{totalPrice}}</span>
                 </p>
@@ -27,18 +27,18 @@
         </div>
         <div class="row row-4">
             <div class="col">
-                <p class="block price-category">分类总价</p>
+                <p class="block price-category">分類總價</p>
             </div>
             <div class="col">
                 <p class="sub">
                     <img class="icon" src="/assets/images/Basics2.png">
-                    <span class="title">总面积</span>
+                    <span class="title">總面積</span>
                     <span class="value block">0</span>
                     <span class="unit">平方米</span>
                 </p>
                 <p class="sec">
                     <img class="icon" src="/assets/images/Electric2.png">
-                    <span class="title">平面单价</span>
+                    <span class="title">平面單價</span>
                     <span class="unit">￥</span>
                     <span class="value block sensitive">0</span>
                 </p>
@@ -60,7 +60,7 @@
             <div class="col">
                 <p class="sub">
                     <img class="icon" src="/assets/images/Basics2.png">
-                    <span class="title">家居饰品</span>
+                    <span class="title">家居飾品</span>
                     <span class="unit">￥</span>
                     <span class="value block furniture-totalprice sensitive">{{totalPrice}}</span>
                 </p>
@@ -72,15 +72,15 @@
             <div class="title" (click)='toggleFurnitureList()'>
                 <div class="des">
                     <img class="icon" src="/assets/images/Ornaments.png">
-                    <span>家居饰品</span>
-                    <span class="price prefix">（ 总价:</span>
+                    <span>家居飾品</span>
+                    <span class="price prefix">（ 總價:</span>
                     <span class="price value sensitive">{{totalPrice}}</span>
                     <span class="price postfix">）</span>
                 </div>
                 <div class="op">
                     <span>共</span>
                     <span class="count">{{orderDetails.length}}</span>
-                    <span>项</span>
+                    <span>項</span>
                     <div class="arrow" [class.collapse]='!showFurnitureList'></div>
                 </div>
             </div>
@@ -88,31 +88,27 @@
                 <table id="furniture-list">
                     <thead>
                         <tr>
-                            <th>图片</th>
-                            <th>品牌</th>
-                            <th>产品名称</th>
-                            <th>尺寸是否更改</th>
-                            <th>产品描述</th>
-                            <th>数量</th>
-                            <th class="hidden-in-bom">单价</th>
-                            <th class="hidden-in-bom">总价</th>
+                            <th>圖片</th>
+                            <th>産品名稱</th>
+                            <!-- <th>尺寸是否更改</th> -->
+                            <th>産品描述</th>
+                            <th>數量</th>
+                            <th class="hidden-in-bom">單價</th>
+                            <th class="hidden-in-bom">總價</th>
                         </tr>
                     </thead>
                     <tbody id="furniture-list-tbody">
                         <tr *ngFor='let it of orderDetails'>
                             <td><img class="product" [src]='it.icon|serverRedirect:128'></td>
                             <td>
-                                <p class="des">{{it.productBrand}}</p>
-                            </td>
-                            <td>
                                 <p class="des">{{it.productName}}</p>
                             </td>
-                            <td>
-                                <p class="des">无</p>
-                            </td>
+                            <!-- <td>
+                                <p class="des">無</p>
+                            </td> -->
                             <td>
                                 <p class="des">{{it.productDescription?(it.productDescription.length>25?it.productDescription.substring(0,
-                                    25)+'...':it.productDescription):'无'}}</p>
+                                    25)+'...':it.productDescription):'無'}}</p>
                             </td>
                             <td>
                                 <p class="des">{{it.num}}</p>
@@ -134,9 +130,9 @@
 
         </div>
         <div class="op">
-            <button id="btnPrintBOM" (click)='printBOM()'>打印材料单</button>
-            <button id="btnPrintBILL" (click)='printBILL()'>打印报价单</button>
-            <button id="btnPrintBOM" (click)='exportExcel()' [disabled]='!enableExportExcel'>导出表格</button>
+            <button id="btnPrintBOM" (click)='printBOM()'>打印材料單</button>
+            <button id="btnPrintBILL" (click)='printBILL()'>打印報價單</button>
+            <button id="btnPrintBOM" (click)='exportExcel()' [disabled]='!enableExportExcel'>導出表格</button>
         </div>
     </div>
 </div>

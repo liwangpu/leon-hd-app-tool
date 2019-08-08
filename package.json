@@ -14,7 +14,7 @@
     "webpack:server": "webpack --config webpack.server.config.js --progress --colors",
     "test:ssr": "npm run build:ssr && npm run serve:ssr && node dist/browser/assets/app-startup.js",
     "test:docker:image": "docker stop hd_app_tool_c && docker rm  hd_app_tool_c && docker build -t hd_app_tool . && docker run -p 4000:4000 -e APISERVER=http://kennapi.damaozhu.com.cn --name hd_app_tool_c hd_app_tool:latest",
-    "build:prod:docker:image": "npm run build:ssr && docker build -t dockerhub.damaozhu.com.cn:5000/app-site-morejee-tool:norya ."
+    "build:prod:docker:image": "npm run build:ssr && docker build -t dockerhub.damaozhu.com.cn:5000/app-site-morejee-tool:yuanmin ."
   },
   "private": true,
   "dependencies": {
@@ -32,16 +32,17 @@
     "@nguniversal/express-engine": "~7.0.2",
     "@nguniversal/module-map-ngfactory-loader": "~7.0.2",
     "core-js": "^2.5.4",
+    "download": "^7.1.0",
+    "excel4node": "^1.7.2",
+    "file-saver": "1.3.8",
     "material-design-icons": "~3.0.1",
+    "moment": "^2.24.0",
     "qrcode": "^1.3.3",
+    "request": "^2.88.0",
     "rxjs": "~6.3.3",
     "tslib": "~1.9.0",
     "uuid": "^3.3.2",
-    "download": "^7.1.0",
-    "excel4node": "^1.7.2",
-    "request": "^2.88.0",
-    "zone.js": "~0.8.26",
-    "file-saver": "1.3.8"
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.12.0",
